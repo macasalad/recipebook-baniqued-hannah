@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
     <title>{% block title %}Recipe Book{% endblock %}</title>
-    <h1>{% block header %}Recipe Book{% endblock %}</h1>
 </head>
 <body>
-    {% block content %}
-    {% endblock %}
+    <h1>Recipe Book</h1>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    
 </body>
 </html>
