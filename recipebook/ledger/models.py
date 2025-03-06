@@ -19,7 +19,7 @@ class Recipe(models.Model):
     def get_absolute_url(self):
         return reverse('ledger:recipe_detail', args=[self.pk])
     
-class IngredientRecipe(models.Model):
+class RecipeIngredient(models.Model):
     quantity = models.IntegerField()
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE, related_name = "recipe")
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name = "ingredients")
