@@ -12,6 +12,7 @@ def recipe(request, pk):
     recipe = Recipe.objects.get(pk = pk)
     ingredients = recipe.ingredients.all()
     ctx = {
+        "recipe": recipe,
         "ingredients" : ingredients
     }
     return render(request, "recipe.html", ctx)
