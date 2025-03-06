@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Recipe, Ingredient, RecipeIngredient
+from .models import Recipe
 
 def recipes(request):
     recipes = Recipe.objects.all()
