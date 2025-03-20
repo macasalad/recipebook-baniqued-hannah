@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import Ingredient, Recipe, RecipeIngredient
+from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.models import User
+from .models import Ingredient, Recipe, RecipeIngredient, Profile
 
 class RecipeIngredientInline(admin.TabularInline):
     '''
@@ -40,7 +42,16 @@ class RecipeIngredientAdmin(admin.ModelAdmin):
     list_filter = ('recipe', 'ingredient',)
     search_fields = ('name',)
 
+class ProfileInline(admin.StackedInline):
+    model = Profile
+    can_delete = False
+
+class CustomUserAdmin(UserAdmin):
+    inlines = [ProfileInline,]
+
 # Register models with their corresponding admin configurations
 admin.site.register(Ingredient, IngredientAdmin)
 admin.site.register(Recipe, RecipeAdmin)
 admin.site.register(RecipeIngredient, RecipeIngredientAdmin)
+admin.site.unregister(User)
+admin.site.register(User, CustomUserAdmin)
