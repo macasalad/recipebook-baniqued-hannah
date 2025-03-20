@@ -1,5 +1,19 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
+
+class Profile(models.Model):
+    '''
+    This is a model for individual users.
+    '''
+    user = models.OneToOneField(User, max_length=50, on_delete=models.CASCADE)
+    bio = models.TextField(max_length=255)
+
+    def __str__(self):
+        '''
+        String representation of the user name
+        '''
+        return self.user.username
 
 class Ingredient(models.Model):
     '''
@@ -23,7 +37,10 @@ class Recipe(models.Model):
     '''
     This is a model for recipes.
     '''
+    author = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="author")
     name = models.CharField(max_length=50)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         '''
