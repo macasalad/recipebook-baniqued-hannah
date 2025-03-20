@@ -5,18 +5,15 @@
 {% block content %}
     <h2>{{ recipe.name }}</h2>
     <p>
-        <strong>Created by: {{ recipe.author }}</strong><br>
-        <small><i>Created on: {{ recipe.created_on }}</i></small><br>
-        <small><i>Last updated on: {{ recipe.updated_on }}</i></small><br>
+        <strong>Created By: {{ recipe.author }}</strong><br>
+        <small><i>Created on: {{ recipe.created_on }} | Updated on: {{ recipe.created_on }}</i></small><br>
     </p>
-    <p>
-        <h4>Ingredients:</h4>
+    <h4>Ingredients:</h4>
     <ul>
         {% for ingredient in ingredients %}
         <li>{{ ingredient.ingredient.name }}: {{ ingredient.quantity }}</a></li>
         {% endfor %}
     </ul>
-    </p>
 
     <a href="/recipes/list">Back to Home</a>
     
