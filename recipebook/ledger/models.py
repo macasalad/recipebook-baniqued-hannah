@@ -6,14 +6,15 @@ class Profile(models.Model):
     '''
     This is a model for individual users.
     '''
-    user = models.OneToOneField(User, max_length=50, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
     bio = models.TextField(max_length=255)
 
     def __str__(self):
         '''
         String representation of the user name
         '''
-        return self.user.username
+        return self.name
 
 class Ingredient(models.Model):
     '''
