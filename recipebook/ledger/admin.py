@@ -43,10 +43,13 @@ class RecipeIngredientAdmin(admin.ModelAdmin):
     search_fields = ('name',)
 
 class ProfileInline(admin.StackedInline):
+    '''
+    Admin configuration for Profile model
+    '''
     model = Profile
     can_delete = False
 
-class CustomUserAdmin(UserAdmin):
+class UserAdmin(admin.ModelAdmin):
     inlines = [ProfileInline,]
 
 # Register models with their corresponding admin configurations
@@ -54,4 +57,4 @@ admin.site.register(Ingredient, IngredientAdmin)
 admin.site.register(Recipe, RecipeAdmin)
 admin.site.register(RecipeIngredient, RecipeIngredientAdmin)
 admin.site.unregister(User)
-admin.site.register(User, CustomUserAdmin)
+admin.site.register(User, UserAdmin)
