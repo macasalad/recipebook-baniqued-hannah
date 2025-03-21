@@ -44,12 +44,15 @@ class RecipeIngredientAdmin(admin.ModelAdmin):
 
 class ProfileInline(admin.StackedInline):
     '''
-    Admin configuration for Profile model
+    Inline admin configuration for the Profile model
     '''
     model = Profile
     can_delete = False
 
 class CustomUserAdmin(UserAdmin):
+    '''
+    Custom admin configuration for the User model.
+    '''
     inlines = [ProfileInline,]
 
 # Register models with their corresponding admin configurations
