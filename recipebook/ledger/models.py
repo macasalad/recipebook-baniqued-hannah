@@ -12,7 +12,7 @@ class Profile(models.Model):
 
     def __str__(self):
         '''
-        String representation of the user name
+        String representation of the user's name
         '''
         return self.name
 
