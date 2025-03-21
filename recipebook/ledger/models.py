@@ -38,7 +38,7 @@ class Recipe(models.Model):
     '''
     This is a model for recipes.
     '''
-    author = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="author")
+    author = models.ForeignKey(Profile, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
