@@ -68,3 +68,11 @@ class RecipeIngredient(models.Model):
         Customizing the plural name in the admin interface
         '''
         verbose_name_plural = "Recipe Ingredients"
+
+class RecipeImage(models.Model):
+    '''
+    This is a model for recipe images.
+    '''
+    image = models.ImageField(upload_to="recipe_images/")
+    description = models.TextField(max_length=255)
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="recipe_images")
