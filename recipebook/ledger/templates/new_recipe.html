@@ -14,11 +14,12 @@
         {% csrf_token %}
         {{ recipe_ingredient_form.as_p }}
         <input type="submit" value="Add Ingredient to Recipe">
-        <button onclick="window.location.href='/recipe/add/new-ingredient'">Add New Ingredient</button> 
     </form>
     
     <p>
-        <button onclick="window.location.href='/recipes/list'">Back to Home</button> 
+        <button onclick="window.location.href='/recipe/add/new-ingredient'">Add New Ingredient</button>
     </p>
-    
+    <p>
+        <button onclick="window.location.href='/recipes/list'">Back to Home</button> 
+    </p>    
 {% endblock %}
