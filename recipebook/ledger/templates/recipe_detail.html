@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ recipe.name }}{% endblock %}
+
+{% block content %}
+    <h2>{{ recipe.name }}</h2>
+    <p>
+        <strong>Created by: {{ recipe.author }}</strong><br>
+        <small><i>Created on: {{ recipe.created_on }} | Updated on: {{ recipe.created_on }}</i></small><br>
+    </p>
+
+    {% if images %}
+        {% for image in images %}
+            <img src="{{ image.image.url }}" alt="{{ image.description }}"> <br>
+        {% endfor%}
+    {% endif %}
+
+    {% if ingredients %}
+        <h4>Ingredients:</h4>
+        <ul>
+            {% for ingredient in ingredients %}
+            <li>{{ ingredient.ingredient.name }}: {{ ingredient.quantity }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <p>
+        <button onclick="window.location.href='/recipes/list'">Back to Home</button>
+    </p>
+{% endblock %}
