@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <ul>
+        {% for recipe in recipes %}
+        <li><a href="{{ recipe.get_absolute_url }}">{{ recipe.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <p>
+        <button onclick="window.location.href='/recipe/add/'">Create New Recipe</button> 
+    </p>
+{% endblock %}
