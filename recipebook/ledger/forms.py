@@ -1,6 +1,7 @@
 from django import forms
 from .models import Recipe, Ingredient, RecipeIngredient, RecipeImage
 
+
 class RecipeForm(forms.ModelForm):
     '''
     This is a form for creating or editing a recipe.
