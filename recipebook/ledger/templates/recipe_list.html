@@ -2,12 +2,11 @@
 {% load static %}
 
 {% block content %}
+    <button onclick="window.location.href='/recipe/add/'">Create New Recipe</button>
+ 
     <ul>
         {% for recipe in recipes %}
         <li><a href="{{ recipe.get_absolute_url }}">{{ recipe.name }}</a></li>
         {% endfor %}
-    </ul>
-    <p>
-        <button onclick="window.location.href='/recipe/add/'">Create New Recipe</button> 
-    </p>
+    </ul>  
 {% endblock %}
