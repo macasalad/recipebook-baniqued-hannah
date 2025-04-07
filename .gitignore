@@ -4,3 +4,4 @@ db.sqlite3
 recipe_images/
 *.png
 *.jpg
+.env
