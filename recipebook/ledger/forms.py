@@ -12,6 +12,9 @@ class IngredientForm(forms.ModelForm):
         fields = '__all__'
 
 class RecipeIngredientForm(forms.ModelForm):
+    ingredient = forms.ModelChoiceField(queryset=Ingredient.objects.all())
+    recipe = forms.ModelChoiceField(queryset=Recipe.objects.all())
+
     class Meta:
         model = RecipeIngredient
         fields = '__all__'
