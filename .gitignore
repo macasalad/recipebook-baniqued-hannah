@@ -1,3 +1,7 @@
 recipebookenv/
 __pycache__/
 db.sqlite3
+recipe_images/
+*.png
+*.jpg
+.env

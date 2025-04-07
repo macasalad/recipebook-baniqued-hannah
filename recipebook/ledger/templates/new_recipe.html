@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h3>Recipe:</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ recipe_form.as_p }}
+        <input type="submit" name="add_recipe" value="Add Recipe">
+    </form>
+
+    <h3>Ingredient:</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ ingredient_form.as_p }}
+        <input type="submit" name="add_ingredient" value="Add Ingredient">
+    </form>
+
+    <h3>RecipeIngredient:</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ recipe_ingredient_form.as_p }}
+        <input type="submit" name="add_recipe_ingredient" value="Add Ingredient to Recipe">
+    </form>
+    <br>
+    <button onclick="window.location.href='/recipes/list'">Back to Home</button> 
+{% endblock %}
