@@ -31,8 +31,8 @@ class RecipeIngredientForm(forms.ModelForm):
     This is a form for linking an Ingredient to a Recipe with a specific quantity.
     It allows selection of both Ingredient and Recipe from dropdowns.
     '''
-    ingredient = forms.ModelChoiceField(queryset=Ingredient.objects.all())
-    recipe = forms.ModelChoiceField(queryset=Recipe.objects.all())
+    ingredient = forms.ModelChoiceField(queryset=Ingredient.objects.all().order_by('name'))
+    recipe = forms.ModelChoiceField(queryset=Recipe.objects.all().order_by('name'))
 
     class Meta:
         '''
